@@ -10,9 +10,7 @@ Preferences preferences;
 
 // ==== Wi-Fi Settings ====
 const char* wifiList[][2] = {
-  {"Son", "Binhson098"},
-  {"VGU_Student_Guest", ""},
-  {"WRU1", "88888888"}
+  {"SSID", "password"} //this is wifi credentials
 };
 const int wifiCount = sizeof(wifiList) / sizeof(wifiList[0]);
 String lastSSID, lastPass;
@@ -130,7 +128,8 @@ void loop() {
         "\"pm2_5\":" + String(pmsData.PM_AE_UG_2_5) + "," +
         "\"pm10\":" + String(pmsData.PM_AE_UG_10_0) +
       "}";
-
+  
+// send json to the app
       client.println("HTTP/1.1 200 OK");
       client.println("Content-Type: application/json");
       client.println("Access-Control-Allow-Origin: *");
